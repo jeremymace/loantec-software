@@ -1,26 +1,177 @@
 @import "tailwindcss";
 
+/* ── Futura (licensed Futura PT) ── */
+@font-face { font-family: 'Futura'; src: url('/fonts/FuturaCyrillicLight.ttf') format('truetype'); font-weight: 300; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Futura'; src: url('/fonts/FuturaCyrillicBook.ttf') format('truetype'); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Futura'; src: url('/fonts/FuturaCyrillicMedium.ttf') format('truetype'); font-weight: 500; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Futura'; src: url('/fonts/FuturaCyrillicDemi.ttf') format('truetype'); font-weight: 600; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Futura'; src: url('/fonts/FuturaCyrillicBold.ttf') format('truetype'); font-weight: 700; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Futura'; src: url('/fonts/FuturaCyrillicExtraBold.ttf') format('truetype'); font-weight: 800; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Futura'; src: url('/fonts/FuturaCyrillicHeavy.ttf') format('truetype'); font-weight: 900; font-style: normal; font-display: swap; }
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Brand primaries */
+  --red: #E30613;
+  --red-hover: #C80510;
+  --red-press: #A50410;
+  --black: #000000;
+  --white: #FFFFFF;
+
+  /* Extended */
+  --blue: #5BA4D9;
+  --blue-hover: #4A8FC2;
+  --blue-press: #3C7BAA;
+  --warm-gray: #A89F91;
+
+  /* Neutral ramp */
+  --gray-50: #F5F4F2;
+  --gray-100: #ECEAE6;
+  --gray-200: #DEDBD4;
+  --gray-300: #CBC6BC;
+  --gray-400: #A89F91;
+  --gray-500: #8A8276;
+  --gray-600: #6B6459;
+  --gray-700: #4D483F;
+  --gray-800: #333333;
+  --gray-900: #1A1A1A;
+
+  /* Semantic states */
+  --success: #1F8A4C;
+  --success-bg: #E7F3EC;
+  --warning: #C9881A;
+  --warning-bg: #FBF1DE;
+  --danger: #E30613;
+  --danger-bg: #FCE6E7;
+  --info: #5BA4D9;
+  --info-bg: #EAF3FA;
+
+  /* Surfaces */
+  --surface-page: var(--white);
+  --surface-alt: var(--gray-50);
+  --surface-card: var(--white);
+  --surface-dark: var(--black);
+
+  /* Text */
+  --text-strong: var(--black);
+  --text-body: var(--gray-900);
+  --text-muted: var(--gray-800);
+  --text-subtle: var(--gray-500);
+  --text-link: var(--blue);
+  --text-link-hover: var(--blue-hover);
+
+  /* Borders */
+  --border: var(--gray-200);
+  --border-strong: var(--gray-300);
+  --border-focus: var(--blue);
+
+  /* Fonts */
+  --font-heading: 'Futura', 'Century Gothic', sans-serif;
+  --font-body: 'Lora', Georgia, 'Times New Roman', serif;
+
+  /* Radii */
+  --radius: 4px;
+  --radius-lg: 8px;
+  --radius-pill: 999px;
+
+  /* Shadows */
+  --shadow-card-hover: 0 2px 8px rgba(0, 0, 0, 0.08);
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.06);
+  --shadow-md: 0 4px 14px rgba(0, 0, 0, 0.10);
+  --shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.14);
+  --shadow-focus: 0 0 0 3px rgba(91, 164, 217, 0.45);
+
+  /* Motion */
+  --ease: cubic-bezier(0.2, 0, 0.2, 1);
+  --dur-fast: 120ms;
+  --dur: 180ms;
+  --dur-slow: 260ms;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-lt-red: var(--red);
+  --color-lt-red-hover: var(--red-hover);
+  --color-lt-black: var(--black);
+  --color-lt-blue: var(--blue);
+  --color-lt-blue-hover: var(--blue-hover);
+  --color-lt-warm-gray: var(--warm-gray);
+  --color-lt-gray-50: var(--gray-50);
+  --color-lt-gray-100: var(--gray-100);
+  --color-lt-gray-200: var(--gray-200);
+  --color-lt-gray-300: var(--gray-300);
+  --color-lt-gray-800: var(--gray-800);
+  --color-lt-success: var(--success);
+  --color-lt-success-bg: var(--success-bg);
+  --color-lt-warning: var(--warning);
+  --color-lt-warning-bg: var(--warning-bg);
+  --color-lt-info-bg: var(--info-bg);
+  --font-heading: var(--font-heading);
+  --font-body: var(--font-body);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
+*, *::before, *::after { box-sizing: border-box; }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--text-body);
+  background: var(--surface-page);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  line-height: 1.2;
+  color: var(--text-strong);
+  margin: 0 0 0.5em;
+  letter-spacing: -0.01em;
+}
+
+p { margin: 0 0 1em; text-wrap: pretty; }
+
+a {
+  color: var(--text-link);
+  text-decoration: none;
+  transition: color var(--dur) var(--ease);
+}
+a:hover { color: var(--text-link-hover); text-decoration: underline; }
+
+::selection { background: var(--red); color: #fff; }
+
+/* Utility classes for responsive layout */
+.lt-wrap {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+@media (max-width: 900px) {
+  .lt-wrap { padding-left: 30px; padding-right: 30px; }
+  .lt-hero, .lt-split { grid-template-columns: 1fr !important; gap: 40px !important; }
+  .lt-cols-4 { grid-template-columns: 1fr 1fr !important; }
+  .lt-cols-3 { grid-template-columns: 1fr 1fr !important; }
+  .lt-faq-layout { grid-template-columns: 1fr !important; gap: 16px !important; }
+  .lt-faq-side { position: static !important; top: auto !important; }
+  .lt-partner-card { grid-template-columns: 1fr !important; gap: 18px !important; }
+}
+
+@media (max-width: 620px) {
+  .lt-wrap { padding: 48px 20px; }
+  .lt-cols-2, .lt-cols-3, .lt-cols-4 { grid-template-columns: 1fr !important; }
+  .lt-stats { grid-template-columns: 1fr 1fr !important; }
+  .lt-form-grid { grid-template-columns: 1fr !important; }
+  .lt-cta-band { flex-direction: column !important; align-items: flex-start !important; gap: 22px !important; padding: 48px 20px !important; }
+  .lt-footer-grid { grid-template-columns: 1fr 1fr !important; row-gap: 36px !important; padding: 44px 20px 24px !important; }
+  #__next h1, h1 { font-size: 33px !important; }
+  h2 { font-size: 26px !important; }
+  h3 { font-size: 21px !important; }
+  .lt-hero-h1 { font-size: 36px !important; }
+}
+
+@media (max-width: 430px) {
+  .lt-stats, .lt-footer-grid { grid-template-columns: 1fr !important; }
+  h1 { font-size: 29px !important; }
+  .lt-hero-h1 { font-size: 31px !important; }
 }
