@@ -62,7 +62,7 @@ export default function PageHeader({
             backgroundImage: `url(${bgImage})`,
             backgroundSize: "cover",
             backgroundPosition: "center",
-            opacity: dark ? 0.12 : 0.06,
+            opacity: 0.2,
             pointerEvents: "none",
           }}
         />
