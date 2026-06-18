@@ -237,18 +237,33 @@ function DesignPhilosophy() {
     <section style={{ background: "var(--gray-50)", borderBottom: "1px solid var(--border)" }}>
       <AnimateIn from="up" distance={25}>
         <div
-          className="lt-wrap lt-split"
+          className="lt-wrap lt-hero"
           style={{
             padding: "56px 40px",
             display: "grid",
-            gridTemplateColumns: "1fr 1fr",
-            gap: 48,
+            gridTemplateColumns: "1.05fr .95fr",
+            gap: 56,
             alignItems: "center",
-            maxWidth: 960,
-            marginLeft: "auto",
-            marginRight: "auto",
           }}
         >
+          <div>
+            <Image
+              src="/images/hero-worker.jpg"
+              alt="Loan officer using LoanTec software"
+              width={800}
+              height={600}
+              style={{
+                width: "100%",
+                height: "auto",
+                display: "block",
+                borderRadius: "var(--radius-lg)",
+                border: "1px solid var(--border)",
+                boxShadow: "var(--shadow-lg)",
+                aspectRatio: "4 / 3",
+                objectFit: "cover",
+              }}
+            />
+          </div>
           <div>
             <h3 style={{ fontSize: 28, margin: "0 0 12px", lineHeight: 1.2 }}>
               Simple front end.{" "}
@@ -259,7 +274,7 @@ function DesignPhilosophy() {
                 fontFamily: "var(--font-body)",
                 fontSize: 16.5,
                 color: "var(--text-muted)",
-                margin: 0,
+                margin: "0 0 24px",
                 lineHeight: 1.6,
               }}
             >
@@ -269,50 +284,50 @@ function DesignPhilosophy() {
               browser compatibility, and modern deployment architecture.
               Simplicity is a design choice, not a limitation.
             </p>
-          </div>
-          <div style={{ display: "grid", gap: 14 }}>
-            {[
-              ["Fast to learn", "New hires are productive in days, not weeks."],
-              ["TLS 1.2 security", "Industry-standard encryption on every connection."],
-              ["Modern infrastructure", "Current browser support and cloud-ready architecture."],
-            ].map(([t, b]) => (
-              <div
-                key={t}
-                style={{
-                  display: "flex",
-                  gap: 12,
-                  alignItems: "flex-start",
-                }}
-              >
-                <Check
-                  size={18}
-                  color="var(--success)"
-                  style={{ flexShrink: 0, marginTop: 3 }}
-                />
-                <div>
-                  <div
-                    style={{
-                      fontFamily: "var(--font-heading)",
-                      fontWeight: 700,
-                      fontSize: 15.5,
-                      color: "var(--text-strong)",
-                    }}
-                  >
-                    {t}
-                  </div>
-                  <div
-                    style={{
-                      fontFamily: "var(--font-body)",
-                      fontSize: 14,
-                      color: "var(--text-muted)",
-                      marginTop: 2,
-                    }}
-                  >
-                    {b}
+            <div style={{ display: "grid", gap: 14 }}>
+              {[
+                ["Fast to learn", "New hires are productive in days, not weeks."],
+                ["TLS 1.2 security", "Industry-standard encryption on every connection."],
+                ["Modern infrastructure", "Current browser support and cloud-ready architecture."],
+              ].map(([t, b]) => (
+                <div
+                  key={t}
+                  style={{
+                    display: "flex",
+                    gap: 12,
+                    alignItems: "flex-start",
+                  }}
+                >
+                  <Check
+                    size={18}
+                    color="var(--success)"
+                    style={{ flexShrink: 0, marginTop: 3 }}
+                  />
+                  <div>
+                    <div
+                      style={{
+                        fontFamily: "var(--font-heading)",
+                        fontWeight: 700,
+                        fontSize: 15.5,
+                        color: "var(--text-strong)",
+                      }}
+                    >
+                      {t}
+                    </div>
+                    <div
+                      style={{
+                        fontFamily: "var(--font-body)",
+                        fontSize: 14,
+                        color: "var(--text-muted)",
+                        marginTop: 2,
+                      }}
+                    >
+                      {b}
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
       </AnimateIn>
@@ -635,7 +650,14 @@ export default function HomePage() {
       <FeaturesPreview />
       <Trust />
       <IntegrationsBar />
-      <CTA title="Ready to streamline your lending operation?" />
+      <CTA
+        title="Ready to streamline your lending operation?"
+        photos={[
+          { src: "/images/cta-storefront.jpg", alt: "Customer entering a loan office" },
+          { src: "/images/cta-computer.jpg", alt: "Loan officer working at a computer" },
+          { src: "/images/cta-check.jpg", alt: "Borrower receiving a check" },
+        ]}
+      />
     </>
   );
 }
