@@ -64,7 +64,7 @@ function Hero() {
         style={{
           position: "absolute",
           inset: 0,
-          backgroundImage: "url(/images/bg-office.jpg)",
+          backgroundImage: "url(/images/bg-features.png)",
           backgroundSize: "cover",
           backgroundPosition: "center",
           opacity: 0.04,
@@ -248,7 +248,7 @@ function DesignPhilosophy() {
         >
           <div>
             <Image
-              src="/images/hero-worker.jpg"
+              src="/images/hero-worker.png"
               alt="Loan officer using LoanTec software"
               width={800}
               height={600}
@@ -497,7 +497,7 @@ function Trust() {
         style={{
           position: "absolute",
           inset: 0,
-          backgroundImage: "url(/images/bg-dark-office.jpg)",
+          backgroundImage: "url(/images/bg-oklahoma.png)",
           backgroundSize: "cover",
           backgroundPosition: "center",
           opacity: 0.12,
@@ -653,9 +653,9 @@ export default function HomePage() {
       <CTA
         title="Ready to streamline your lending operation?"
         photos={[
-          { src: "/images/cta-storefront.jpg", alt: "Customer entering a loan office" },
-          { src: "/images/cta-computer.jpg", alt: "Loan officer working at a computer" },
-          { src: "/images/cta-check.jpg", alt: "Borrower receiving a check" },
+          { src: "/images/cta-storefront.png", alt: "Customer entering a loan office" },
+          { src: "/images/cta-computer.png", alt: "Loan officer working at a computer" },
+          { src: "/images/cta-check.png", alt: "Borrower receiving a check" },
         ]}
       />
     </>

@@ -184,7 +184,7 @@ export default function PartnersPage() {
         eyebrow="Integration partners"
         title="Built to work with the tools you trust"
         sub="LoanTec integrates with leading payment, credit, and mobile platforms — built in, not bolted on."
-        bgImage="/images/bg-smartphone.jpg"
+        bgImage="/images/bg-integrations.png"
       />
       <PartnerCategories />
       <PartnerCards />

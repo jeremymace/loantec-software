@@ -107,7 +107,7 @@ export default function ResourcesPage() {
         eyebrow="Resources"
         title="Resources"
         sub="Regulatory offices serving the lenders we work with."
-        bgImage="/images/bg-government.jpg"
+        bgImage="/images/bg-government-building.png"
       />
       <section style={{ background: "#fff" }}>
         <div

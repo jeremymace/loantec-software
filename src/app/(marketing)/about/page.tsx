@@ -326,7 +326,7 @@ export default function AboutPage() {
         eyebrow="About us"
         title="Built by lenders, for lenders"
         sub="Nearly 30 years of loan management software for small lending businesses — and the same focus we started with in 1996."
-        bgImage="/images/bg-handshake.jpg"
+        bgImage="/images/bg-features.png"
       />
       <Story />
       <Founder />

@@ -25,7 +25,7 @@ export default function StatesPage() {
         eyebrow="Your state"
         title="Compliance built in"
         sub="LoanTec supports lenders operating under state-specific regulations. We track the rules so your office stays compliant."
-        bgImage="/images/bg-vintage-map.jpg"
+        bgImage="/images/bg-map.png"
       />
       <section style={{ background: "#fff" }}>
         <div

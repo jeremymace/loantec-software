@@ -375,7 +375,7 @@ export default function PricingPage() {
         eyebrow="Pricing"
         title="Simple, transparent pricing"
         sub="$260/month per office. Everything included."
-        bgImage="/images/bg-monitor-person.jpg"
+        bgImage="/images/bg-pricing.png"
       />
       <PricingHero />
       <PricingExtras />

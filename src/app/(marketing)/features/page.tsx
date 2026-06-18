@@ -191,7 +191,7 @@ function IntegrationCallout() {
         style={{
           position: "absolute",
           inset: 0,
-          backgroundImage: "url(/images/bg-finance.jpg)",
+          backgroundImage: "url(/images/bg-integrations.png)",
           backgroundSize: "cover",
           backgroundPosition: "center",
           opacity: 0.04,
@@ -261,7 +261,7 @@ export default function FeaturesPage() {
         eyebrow="Features"
         title="Everything you need to run your lending operation"
         sub="One platform. Every workflow."
-        bgImage="/images/bg-laptop-coffee.jpg"
+        bgImage="/images/bg-features.png"
       />
       <DeploymentOptions />
       <FeatureGridDetailed />
