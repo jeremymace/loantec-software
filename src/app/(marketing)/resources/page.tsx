@@ -1,8 +1,119 @@
 "use client";
 
-import { Phone, Mail } from "lucide-react";
+import { Phone, Mail, FileText, ClipboardList } from "lucide-react";
 import PageHeader from "@/components/sections/PageHeader";
 import AnimateIn from "@/components/animations/AnimateIn";
+import Card from "@/components/ui/Card";
+
+type DownloadItem = {
+  title: string;
+  href: string;
+  icon: typeof FileText;
+  summary: string;
+};
+
+const DOWNLOADS: DownloadItem[] = [
+  {
+    title: "License Agreement",
+    href: "/resources/LoanTecLicenseAgreement.pdf",
+    icon: FileText,
+    summary:
+      "Cancel anytime with 30 days written notice — no long-term commitment. Software is licensed directly to you and all data you enter remains your property. Software is copyrighted and may not be resold or transferred without written permission.",
+  },
+  {
+    title: "Software Support Agreement",
+    href: "/resources/LoanTec_SoftwareSupportAgreement.pdf",
+    icon: FileText,
+    summary:
+      "Support available Mon–Fri, 8:00 AM – 6:00 PM Central Time. Covers all LoanTec software issues — most resolved immediately, complex issues may require a callback. Training available to help you get the most out of every tool.",
+  },
+  {
+    title: "Company Information Form",
+    href: "/resources/LoanTec_CompanyInformationForm.pdf",
+    icon: ClipboardList,
+    summary:
+      "Fillable form for new customers to provide company details during onboarding.",
+  },
+];
+
+function Downloads() {
+  return (
+    <section style={{ background: "#fff" }}>
+      <div className="lt-wrap" style={{ padding: "64px 40px" }}>
+        <AnimateIn from="up" distance={25}>
+          <span
+            style={{
+              display: "block",
+              width: 56,
+              height: 4,
+              background: "var(--red)",
+              marginBottom: 14,
+            }}
+          />
+          <h2 style={{ fontSize: 28, margin: "0 0 32px" }}>Downloads</h2>
+        </AnimateIn>
+        <AnimateIn
+          from="up"
+          stagger={0.08}
+          staggerSelector=".dl-card"
+          className="lt-cols-3"
+          style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(3, 1fr)",
+            gap: 24,
+          }}
+        >
+          {DOWNLOADS.map((d) => {
+            const Icon = d.icon;
+            return (
+              <Card key={d.title} hoverable className="dl-card">
+                <Icon size={28} color="var(--blue)" style={{ marginBottom: 12 }} />
+                <h3
+                  style={{
+                    fontFamily: "var(--font-heading)",
+                    fontSize: 20,
+                    fontWeight: 700,
+                    color: "var(--text-strong)",
+                    margin: "0 0 10px",
+                  }}
+                >
+                  {d.title}
+                </h3>
+                <p
+                  style={{
+                    fontFamily: "var(--font-body)",
+                    fontSize: 15,
+                    lineHeight: 1.6,
+                    color: "var(--text-muted)",
+                    margin: "0 0 20px",
+                  }}
+                >
+                  {d.summary}
+                </p>
+                <a
+                  href={d.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{
+                    display: "inline-flex",
+                    alignItems: "center",
+                    gap: 8,
+                    fontFamily: "var(--font-heading)",
+                    fontWeight: 600,
+                    fontSize: 15,
+                    color: "var(--blue)",
+                  }}
+                >
+                  Download PDF →
+                </a>
+              </Card>
+            );
+          })}
+        </AnimateIn>
+      </div>
+    </section>
+  );
+}
 
 type ResourceEntryData = {
   name: string;
@@ -106,9 +217,10 @@ export default function ResourcesPage() {
       <PageHeader
         eyebrow="Resources"
         title="Resources"
-        sub="Regulatory offices serving the lenders we work with."
+        sub="Downloadable agreements, forms, and the regulatory offices serving the lenders we work with."
         bgImage="/images/bg-government-building.png"
       />
+      <Downloads />
       <section style={{ background: "#fff" }}>
         <div
           className="lt-wrap"
