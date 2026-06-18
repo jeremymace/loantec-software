@@ -21,8 +21,8 @@ const ICON_MAP: Record<string, React.ReactNode> = {
 };
 
 const PARTNERS: [string, string, string, string][] = [
-  ["REPAY", "Payment processing", "wallet", "Capture and apply borrower payments directly inside LoanTec. REPAY handles card and ACH processing without exporting to a separate tool, so payments post against the right account automatically."],
-  ["Crypton Mobile", "Mobile integration", "smartphone", "Connect LoanTec to mobile workflows for lenders who need them — extending your operation beyond the front desk."],
+  ["REPAY", "Payment processing", "wallet", "Capture and apply borrower payments directly inside LoanTec. REPAY handles debit card processing, ACH, and instant funding \u2014 payments post against the right account automatically, without exporting to a separate tool."],
+  ["Crypton Mobile", "Mobile & communication", "smartphone", "E-signature, AI-powered workflows, texting, and stipulation management \u2014 all in one mobile platform. Crypton extends your LoanTec operation beyond the front desk with the tools modern lenders need."],
   ["Equifax", "Credit reporting", "line-chart", "Pull Equifax credit data inside LoanTec for underwriting decisions — no separate bureau login or manual re-entry."],
   ["Experian", "Credit reporting", "line-chart", "Run Experian credit pulls as part of your origination workflow, with results tied straight to the borrower record."],
   ["TransUnion", "Credit reporting", "line-chart", "Access TransUnion credit reporting from within LoanTec, completing all-three-bureau coverage for your lending decisions."],
@@ -31,7 +31,7 @@ const PARTNERS: [string, string, string, string][] = [
 function PartnerCategories() {
   const cats: [string, string, string][] = [
     ["credit-card", "Payment processing", "REPAY"],
-    ["smartphone", "Mobile", "Crypton Mobile"],
+    ["smartphone", "Mobile & Communication", "Crypton Mobile"],
     ["line-chart", "Credit bureaus", "Equifax \u00b7 Experian \u00b7 TransUnion"],
   ];
 
@@ -58,7 +58,14 @@ function PartnerCategories() {
           <div
             key={label}
             className="cat-item"
-            style={{ textAlign: "center", padding: "20px 16px" }}
+            style={{
+              textAlign: "center",
+              padding: "28px 20px",
+              background: "#fff",
+              border: "1px solid var(--border)",
+              borderRadius: "var(--radius)",
+              boxShadow: "var(--shadow-sm)",
+            }}
           >
             <span style={{ color: "var(--red)", display: "inline-flex" }}>
               {ICON_MAP[icon]}

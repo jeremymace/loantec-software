@@ -3,10 +3,14 @@
 import Link from "next/link";
 import {
   Building2,
-  Cloud,
-  SlidersHorizontal,
+  Monitor,
+  Users,
   Check,
   ArrowRight,
+  BadgePercent,
+  Server,
+  GraduationCap,
+  Database,
 } from "lucide-react";
 import Button from "@/components/ui/Button";
 import Card from "@/components/ui/Card";
@@ -15,13 +19,7 @@ import PageHeader from "@/components/sections/PageHeader";
 import CTA from "@/components/sections/CTA";
 import AnimateIn from "@/components/animations/AnimateIn";
 
-function PricingExplainer() {
-  const factors: [React.ReactNode, string, string][] = [
-    [<Building2 key="b" size={24} />, "Office count", "Single-office shop or multiple locations across states."],
-    [<Cloud key="c" size={24} />, "Deployment type", "Cloud-based for multi-office, or a standalone install."],
-    [<SlidersHorizontal key="s" size={24} />, "Features you use", "Payroll, accounting, and reporting scaled to your operation."],
-  ];
-
+function PricingHero() {
   return (
     <section style={{ background: "#fff" }}>
       <div className="lt-wrap" style={{ padding: "80px 40px" }}>
@@ -36,14 +34,19 @@ function PricingExplainer() {
         >
           <div>
             <SectionHead
-              title="Pricing that fits your operation"
-              body="LoanTec is quote-based — because a single-office signature lender and a multi-state title operation don't need the same thing. We scale to fit, without charging you for enterprise features you'll never use."
+              title="Straightforward pricing"
+              body="No purchase cost, no upfront fees. LoanTec is a monthly license — everything you need to run your lending operation, included from day one."
             />
             <div
-              style={{ marginTop: 28, display: "flex", gap: 14, flexWrap: "wrap" }}
+              style={{
+                marginTop: 28,
+                display: "flex",
+                gap: 14,
+                flexWrap: "wrap",
+              }}
             >
               <Link href="/contact">
-                <Button variant="primary">Get your custom quote</Button>
+                <Button variant="primary">Get started</Button>
               </Link>
               <Link href="/contact">
                 <Button variant="tertiary">Call (830) 896-7107</Button>
@@ -62,48 +65,153 @@ function PricingExplainer() {
                   color: "var(--text-muted)",
                 }}
               >
-                What your quote depends on
+                Per office, per month
               </div>
-              <div style={{ display: "grid", gap: 20, marginTop: 22 }}>
-                {factors.map(([icon, t, b]) => (
-                  <div key={t} style={{ display: "flex", gap: 16 }}>
-                    <span
-                      style={{
-                        color: "var(--blue)",
-                        flexShrink: 0,
-                        marginTop: 2,
-                      }}
-                    >
-                      {icon}
-                    </span>
-                    <div>
-                      <div
-                        style={{
-                          fontFamily: "var(--font-heading)",
-                          fontWeight: 700,
-                          fontSize: 16.5,
-                        }}
-                      >
-                        {t}
-                      </div>
-                      <div
-                        style={{
-                          fontFamily: "var(--font-body)",
-                          fontSize: 14.5,
-                          color: "var(--text-muted)",
-                          marginTop: 3,
-                          lineHeight: 1.45,
-                        }}
-                      >
-                        {b}
-                      </div>
-                    </div>
+              <div
+                style={{
+                  fontFamily: "var(--font-heading)",
+                  fontWeight: 700,
+                  fontSize: 64,
+                  color: "var(--text-strong)",
+                  lineHeight: 1,
+                  marginTop: 12,
+                }}
+              >
+                $260
+              </div>
+              <div
+                style={{
+                  fontFamily: "var(--font-body)",
+                  fontSize: 15.5,
+                  color: "var(--text-muted)",
+                  marginTop: 8,
+                  lineHeight: 1.5,
+                }}
+              >
+                Includes 1 workstation connection, software, initial training,
+                all upgrades, and unlimited phone support.
+              </div>
+              <div
+                style={{
+                  marginTop: 20,
+                  padding: "16px 0 0",
+                  borderTop: "1px solid var(--border)",
+                  display: "flex",
+                  alignItems: "center",
+                  gap: 10,
+                }}
+              >
+                <Monitor size={20} color="var(--blue)" />
+                <div>
+                  <div
+                    style={{
+                      fontFamily: "var(--font-heading)",
+                      fontWeight: 700,
+                      fontSize: 22,
+                      color: "var(--text-strong)",
+                    }}
+                  >
+                    +$20<span style={{ fontSize: 15, fontWeight: 600, color: "var(--text-muted)" }}>/mo</span>
                   </div>
-                ))}
+                  <div
+                    style={{
+                      fontFamily: "var(--font-body)",
+                      fontSize: 13.5,
+                      color: "var(--text-muted)",
+                    }}
+                  >
+                    per additional concurrent terminal connection
+                  </div>
+                </div>
               </div>
             </Card>
           </AnimateIn>
         </div>
+      </div>
+    </section>
+  );
+}
+
+function PricingExtras() {
+  const extras: [React.ReactNode, string, string][] = [
+    [
+      <BadgePercent key="v" size={24} />,
+      "Volume discounts up to 27%",
+      "The more offices and workstations you run, the more you save. Discounts scale based on office count and operating system.",
+    ],
+    [
+      <Server key="h" size={24} />,
+      "Home Office Management System",
+      "Free for multi-office customers. Combines all branches into a single view for auditing, reporting, and oversight. Requires Windows Server with Terminal Services.",
+    ],
+    [
+      <Database key="d" size={24} />,
+      "Data conversion",
+      "Moving from another program? We offer fee-based data conversion to migrate your existing loan records into LoanTec.",
+    ],
+    [
+      <GraduationCap key="t" size={24} />,
+      "3–5 day training course",
+      "Hands-on training for new lenders, conducted in a live loan office. Learn the software the way you'll actually use it.",
+    ],
+  ];
+
+  return (
+    <section style={{ background: "var(--gray-50)" }}>
+      <div className="lt-wrap" style={{ padding: "80px 40px" }}>
+        <SectionHead
+          center
+          title="More ways we support your operation"
+        />
+        <AnimateIn
+          from="up"
+          stagger={0.1}
+          staggerSelector=".extra-card"
+          className="lt-cols-2"
+          style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(2, 1fr)",
+            gap: 18,
+            marginTop: 44,
+          }}
+        >
+          {extras.map(([icon, title, body]) => (
+            <div key={title} className="extra-card">
+              <Card hoverable padding={28} style={{ display: "flex", gap: 18 }}>
+                <span
+                  style={{
+                    width: 52,
+                    height: 52,
+                    flexShrink: 0,
+                    borderRadius: "var(--radius)",
+                    background: "var(--info-bg)",
+                    color: "var(--blue)",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                  }}
+                >
+                  {icon}
+                </span>
+                <div>
+                  <h4 style={{ margin: "2px 0 6px", fontSize: 18 }}>
+                    {title}
+                  </h4>
+                  <p
+                    style={{
+                      margin: 0,
+                      fontSize: 14.5,
+                      color: "var(--text-muted)",
+                      lineHeight: 1.5,
+                    }}
+                  >
+                    {body}
+                  </p>
+                </div>
+              </Card>
+            </div>
+          ))}
+        </AnimateIn>
       </div>
     </section>
   );
@@ -120,13 +228,13 @@ function WhatsIncluded() {
     "Employee activity logs",
     "Credit bureau integrations",
     "REPAY payment processing",
-    "Ongoing software updates",
-    "Phone & email support",
-    "Implementation assistance",
+    "Ongoing software upgrades",
+    "Unlimited phone support",
+    "Initial training & implementation",
   ];
 
   return (
-    <section style={{ background: "var(--gray-50)" }}>
+    <section style={{ background: "#fff" }}>
       <div className="lt-wrap" style={{ padding: "80px 40px" }}>
         <SectionHead
           center
@@ -180,13 +288,26 @@ function WhatsIncluded() {
 
 function PricingFaqTeaser() {
   const qs: [string, string][] = [
-    ["How is pricing structured?", "Pricing is quote-based, set by your office count, deployment type, and the features you use — so you only pay for what fits your operation."],
-    ["Are there setup fees?", "Implementation assistance is part of getting you running. We\u2019ll walk you through the specifics when we scope your quote."],
-    ["What\u2019s included in support?", "Phone and email support Monday–Friday, 8 AM – 7 PM CST, plus ongoing software updates — standard with every deployment."],
+    [
+      "Are there setup or purchase fees?",
+      "No. LoanTec is a monthly license with no upfront cost. Your $260/month per office covers everything you need to get running.",
+    ],
+    [
+      "What if I need more workstations?",
+      "Each additional concurrent terminal connection is $20/month. Add or remove them anytime as your staff grows.",
+    ],
+    [
+      "What\u2019s included in support?",
+      "Unlimited phone support Monday\u2013Friday, 8 AM \u2013 7 PM CST, plus all software upgrades \u2014 included in your monthly license.",
+    ],
+    [
+      "Do you offer volume pricing?",
+      "Yes. Volume discounts of up to 27% are available based on the number of offices and your operating system configuration.",
+    ],
   ];
 
   return (
-    <section style={{ background: "#fff" }}>
+    <section style={{ background: "var(--gray-50)" }}>
       <div className="lt-wrap" style={{ padding: "80px 40px" }}>
         <SectionHead center title="Pricing questions, answered" />
         <AnimateIn
@@ -208,7 +329,7 @@ function PricingFaqTeaser() {
                 border: "1px solid var(--border)",
                 borderRadius: "var(--radius)",
                 padding: "22px 26px",
-                background: "var(--gray-50)",
+                background: "#fff",
               }}
             >
               <div
@@ -253,14 +374,15 @@ export default function PricingPage() {
       <PageHeader
         eyebrow="Pricing"
         title="Simple, transparent pricing"
-        sub="Scaled for single-office and multi-office operations."
+        sub="$260/month per office. Everything included."
       />
-      <PricingExplainer />
+      <PricingHero />
+      <PricingExtras />
       <WhatsIncluded />
       <PricingFaqTeaser />
       <CTA
-        title="Get your custom quote."
-        sub="Tell us about your operation and we'll scope a quote that fits."
+        title="Ready to get started?"
+        sub="Tell us about your operation and we'll get you set up."
         button="Contact us"
       />
     </>

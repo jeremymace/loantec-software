@@ -13,14 +13,7 @@ type ResourceEntryData = {
 
 const RESOURCE_GROUPS: [string, ResourceEntryData[]][] = [
   [
-    "Printing and Sales Aids",
-    [
-      { name: "Burrell Printing", lines: ["901 Hwy. 685", "Pflugerville, Texas 78660"], phone: "800.252.9154", email: "info@BurrellPrinting.com" },
-      { name: "Technology Printing", lines: ["1262 Viceroy Drive", "Dallas, Texas 75247"], phone: "800.777.9091", email: "j.boling@technologyprinting.com" },
-    ],
-  ],
-  [
-    "Other",
+    "Regulatory Offices",
     [
       { name: "OCCC — Office of Consumer Credit Commissioner", lines: ["2601 N. Lamar Blvd.", "Austin, Texas 78705"], phone: "512.936.7600" },
       { name: "Oklahoma Department of Consumer Credit", lines: ["4545 North Lincoln Blvd. Suite 104", "Oklahoma City, Oklahoma 73105"], phone: "405.521.3653" },
@@ -113,7 +106,7 @@ export default function ResourcesPage() {
       <PageHeader
         eyebrow="Resources"
         title="Resources"
-        sub="Printing, sales aids, and the regulatory offices serving the lenders we work with."
+        sub="Regulatory offices serving the lenders we work with."
       />
       <section style={{ background: "#fff" }}>
         <div

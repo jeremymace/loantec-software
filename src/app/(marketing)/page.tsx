@@ -52,7 +52,25 @@ function Hero() {
   );
 
   return (
-    <section ref={ref} style={{ background: "#fff" }}>
+    <section
+      ref={ref}
+      style={{
+        background: "#fff",
+        position: "relative",
+        overflow: "hidden",
+      }}
+    >
+      <div
+        style={{
+          position: "absolute",
+          inset: 0,
+          backgroundImage: "url(/images/bg-office.jpg)",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          opacity: 0.04,
+          pointerEvents: "none",
+        }}
+      />
       <div
         className="lt-wrap lt-hero"
         style={{
@@ -134,166 +152,171 @@ function Hero() {
           </div>
         </div>
         <div className="hero-product">
-          <HeroProduct />
+          <div
+            style={{
+              border: "1px solid var(--border)",
+              borderRadius: "var(--radius-lg)",
+              boxShadow: "var(--shadow-lg)",
+              overflow: "hidden",
+              background: "#fff",
+            }}
+          >
+            <Image
+              src="/images/loantec-screenshot.jpg"
+              alt="LoanTec software interface"
+              width={960}
+              height={640}
+              style={{ width: "100%", height: "auto", display: "block" }}
+              priority
+            />
+          </div>
+          <div
+            style={{
+              marginTop: 14,
+              display: "flex",
+              alignItems: "center",
+              gap: 10,
+              justifyContent: "center",
+            }}
+          >
+            <span
+              style={{
+                fontFamily: "var(--font-heading)",
+                fontWeight: 600,
+                fontSize: 13,
+                letterSpacing: ".06em",
+                textTransform: "uppercase",
+                color: "var(--text-muted)",
+              }}
+            >
+              Simple front end. Modern back end.
+            </span>
+          </div>
         </div>
       </div>
     </section>
   );
 }
 
-function HeroProduct() {
-  const tiles: [string, string][] = [
-    ["Active loans", "1,284"],
-    ["Collected today", "$48,920"],
-    ["Past due", "37"],
-    ["Outstanding", "$3.41M"],
-  ];
-  const rows: [string, string, string, string][] = [
-    ["Maria Delgado", "Signature", "Current", "var(--success)"],
-    ["James Whitfield", "Title", "Past due", "var(--warning)"],
-    ["Dana Brooks", "Title", "Current", "var(--success)"],
-  ];
-
+/* ── Logo Brand Bar ── */
+function LogoBrand() {
   return (
-    <div
-      style={{
-        background: "#fff",
-        border: "1px solid var(--border)",
-        borderRadius: "var(--radius-lg)",
-        boxShadow: "var(--shadow-lg)",
-        overflow: "hidden",
-      }}
-    >
+    <section style={{ background: "#fff", borderBottom: "1px solid var(--border)" }}>
       <div
-        style={{
-          height: 40,
-          background: "var(--black)",
-          display: "flex",
-          alignItems: "center",
-          padding: "0 14px",
-          gap: 7,
-        }}
+        className="lt-wrap"
+        style={{ padding: "36px 40px", textAlign: "center" }}
       >
-        {["#FF5F57", "#FEBC2E", "#28C840"].map((c) => (
-          <span
-            key={c}
-            style={{
-              width: 11,
-              height: 11,
-              borderRadius: "50%",
-              background: c,
-              display: "inline-block",
-            }}
-          />
-        ))}
         <Image
           src="/images/loantec-logo.png"
-          alt=""
-          width={80}
-          height={14}
-          style={{
-            height: 14,
-            width: "auto",
-            marginLeft: 12,
-            filter: "brightness(0) invert(1)",
-          }}
+          alt="LoanTec"
+          width={400}
+          height={100}
+          style={{ height: "auto", width: 200, margin: "0 auto" }}
         />
-      </div>
-      <div style={{ padding: 18, background: "var(--gray-50)" }}>
         <div
           style={{
+            fontFamily: "var(--font-heading)",
+            fontWeight: 700,
+            fontSize: 14,
+            letterSpacing: ".12em",
+            textTransform: "uppercase",
+            color: "var(--text-muted)",
+            marginTop: 10,
+          }}
+        >
+          Solid. Powerful. Fast.
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ── Simple Front End / Modern Back End ── */
+function DesignPhilosophy() {
+  return (
+    <section style={{ background: "var(--gray-50)", borderBottom: "1px solid var(--border)" }}>
+      <AnimateIn from="up" distance={25}>
+        <div
+          className="lt-wrap lt-split"
+          style={{
+            padding: "56px 40px",
             display: "grid",
             gridTemplateColumns: "1fr 1fr",
-            gap: 12,
+            gap: 48,
+            alignItems: "center",
+            maxWidth: 960,
+            marginLeft: "auto",
+            marginRight: "auto",
           }}
         >
-          {tiles.map(([k, v]) => (
-            <div
-              key={k}
+          <div>
+            <h3 style={{ fontSize: 28, margin: "0 0 12px", lineHeight: 1.2 }}>
+              Simple front end.{" "}
+              <span style={{ color: "var(--red)" }}>Modern back end.</span>
+            </h3>
+            <p
               style={{
-                background: "#fff",
-                border: "1px solid var(--border)",
-                borderRadius: "var(--radius)",
-                padding: "14px 16px",
-              }}
-            >
-              <div
-                style={{
-                  fontFamily: "var(--font-heading)",
-                  fontSize: 11,
-                  letterSpacing: ".05em",
-                  textTransform: "uppercase",
-                  color: "var(--text-muted)",
-                  fontWeight: 600,
-                }}
-              >
-                {k}
-              </div>
-              <div
-                style={{
-                  fontFamily: "var(--font-heading)",
-                  fontWeight: 700,
-                  fontSize: 26,
-                  marginTop: 4,
-                }}
-              >
-                {v}
-              </div>
-            </div>
-          ))}
-        </div>
-        <div
-          style={{
-            background: "#fff",
-            border: "1px solid var(--border)",
-            borderRadius: "var(--radius)",
-            marginTop: 12,
-            overflow: "hidden",
-          }}
-        >
-          {rows.map((r, i) => (
-            <div
-              key={i}
-              style={{
-                display: "flex",
-                alignItems: "center",
-                gap: 12,
-                padding: "11px 14px",
-                borderTop: i ? "1px solid var(--border)" : "none",
                 fontFamily: "var(--font-body)",
-                fontSize: 13,
+                fontSize: 16.5,
+                color: "var(--text-muted)",
+                margin: 0,
+                lineHeight: 1.6,
               }}
             >
-              <span
+              The interface is intentionally straightforward — fast to learn,
+              easy to train new employees, zero confusion. Behind the scenes,
+              LoanTec runs on current infrastructure: TLS 1.2 security, Edge
+              browser compatibility, and modern deployment architecture.
+              Simplicity is a design choice, not a limitation.
+            </p>
+          </div>
+          <div style={{ display: "grid", gap: 14 }}>
+            {[
+              ["Fast to learn", "New hires are productive in days, not weeks."],
+              ["TLS 1.2 security", "Industry-standard encryption on every connection."],
+              ["Modern infrastructure", "Current browser support and cloud-ready architecture."],
+            ].map(([t, b]) => (
+              <div
+                key={t}
                 style={{
-                  fontWeight: 700,
-                  color: "var(--text-strong)",
-                  flex: 1,
+                  display: "flex",
+                  gap: 12,
+                  alignItems: "flex-start",
                 }}
               >
-                {r[0]}
-              </span>
-              <span style={{ color: "var(--text-muted)" }}>{r[1]}</span>
-              <span
-                style={{
-                  fontFamily: "var(--font-heading)",
-                  fontWeight: 600,
-                  fontSize: 10.5,
-                  textTransform: "uppercase",
-                  letterSpacing: ".04em",
-                  color: r[3],
-                  background: `color-mix(in srgb, ${r[3]} 12%, #fff)`,
-                  padding: "3px 8px",
-                  borderRadius: 999,
-                }}
-              >
-                {r[2]}
-              </span>
-            </div>
-          ))}
+                <Check
+                  size={18}
+                  color="var(--success)"
+                  style={{ flexShrink: 0, marginTop: 3 }}
+                />
+                <div>
+                  <div
+                    style={{
+                      fontFamily: "var(--font-heading)",
+                      fontWeight: 700,
+                      fontSize: 15.5,
+                      color: "var(--text-strong)",
+                    }}
+                  >
+                    {t}
+                  </div>
+                  <div
+                    style={{
+                      fontFamily: "var(--font-body)",
+                      fontSize: 14,
+                      color: "var(--text-muted)",
+                      marginTop: 2,
+                    }}
+                  >
+                    {b}
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
-      </div>
-    </div>
+      </AnimateIn>
+    </section>
   );
 }
 
@@ -454,7 +477,18 @@ function Trust() {
   ];
 
   return (
-    <section style={{ background: "var(--black)" }}>
+    <section style={{ background: "var(--black)", position: "relative", overflow: "hidden" }}>
+      <div
+        style={{
+          position: "absolute",
+          inset: 0,
+          backgroundImage: "url(/images/bg-dark-office.jpg)",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          opacity: 0.12,
+          pointerEvents: "none",
+        }}
+      />
       <div
         className="lt-wrap"
         style={{ padding: "72px 40px", textAlign: "center" }}
@@ -595,6 +629,8 @@ export default function HomePage() {
   return (
     <>
       <Hero />
+      <LogoBrand />
+      <DesignPhilosophy />
       <ValueStrip />
       <FeaturesPreview />
       <Trust />

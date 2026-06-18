@@ -186,7 +186,18 @@ function FeatureGridDetailed() {
 function IntegrationCallout() {
   const partners = ["REPAY", "Crypton Mobile", "Equifax", "Experian", "TransUnion"];
   return (
-    <section style={{ background: "#fff" }}>
+    <section style={{ background: "#fff", position: "relative", overflow: "hidden" }}>
+      <div
+        style={{
+          position: "absolute",
+          inset: 0,
+          backgroundImage: "url(/images/bg-finance.jpg)",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          opacity: 0.04,
+          pointerEvents: "none",
+        }}
+      />
       <div
         className="lt-wrap lt-split"
         style={{

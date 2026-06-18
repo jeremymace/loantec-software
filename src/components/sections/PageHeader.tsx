@@ -9,6 +9,7 @@ type PageHeaderProps = {
   title: string;
   sub?: string;
   dark?: boolean;
+  bgImage?: string;
 };
 
 export default function PageHeader({
@@ -16,6 +17,7 @@ export default function PageHeader({
   title,
   sub,
   dark,
+  bgImage,
 }: PageHeaderProps) {
   const ref = useRef<HTMLElement>(null);
 
@@ -48,8 +50,23 @@ export default function PageHeader({
       style={{
         background: dark ? "var(--black)" : "var(--gray-50)",
         borderBottom: dark ? "none" : "1px solid var(--border)",
+        position: bgImage ? "relative" : undefined,
+        overflow: bgImage ? "hidden" : undefined,
       }}
     >
+      {bgImage && (
+        <div
+          style={{
+            position: "absolute",
+            inset: 0,
+            backgroundImage: `url(${bgImage})`,
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            opacity: dark ? 0.12 : 0.06,
+            pointerEvents: "none",
+          }}
+        />
+      )}
       <div
         className="lt-wrap"
         style={{ padding: "72px 40px 64px", textAlign: "center" }}

@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Card from "@/components/ui/Card";
 import SectionHead from "@/components/sections/SectionHead";
 import PageHeader from "@/components/sections/PageHeader";
@@ -47,6 +48,99 @@ function Story() {
               {p}
             </p>
           ))}
+        </AnimateIn>
+      </div>
+    </section>
+  );
+}
+
+function Founder() {
+  return (
+    <section style={{ background: "var(--gray-50)", borderTop: "1px solid var(--border)" }}>
+      <div
+        className="lt-wrap lt-split"
+        style={{
+          padding: "80px 40px",
+          display: "grid",
+          gridTemplateColumns: "1fr 1.3fr",
+          gap: 56,
+          alignItems: "center",
+        }}
+      >
+        <AnimateIn from="left" distance={30}>
+          <div
+            style={{
+              borderRadius: "var(--radius-lg)",
+              overflow: "hidden",
+              border: "1px solid var(--border)",
+              boxShadow: "var(--shadow-lg)",
+            }}
+          >
+            <Image
+              src="/images/patrick-car.jpeg"
+              alt="Patrick Baize, Founder of LoanTec"
+              width={600}
+              height={600}
+              style={{ width: "100%", height: "auto", display: "block" }}
+            />
+          </div>
+        </AnimateIn>
+        <AnimateIn from="right" distance={30}>
+          <div>
+            <span
+              style={{
+                display: "block",
+                width: 56,
+                height: 4,
+                background: "var(--red)",
+                marginBottom: 18,
+              }}
+            />
+            <div
+              style={{
+                fontFamily: "var(--font-heading)",
+                fontWeight: 700,
+                fontSize: 13,
+                letterSpacing: ".1em",
+                textTransform: "uppercase",
+                color: "var(--text-muted)",
+              }}
+            >
+              Founder
+            </div>
+            <h2 style={{ fontSize: 34, margin: "8px 0 16px", lineHeight: 1.2 }}>
+              Patrick Baize
+            </h2>
+            <p
+              style={{
+                fontFamily: "var(--font-body)",
+                fontSize: 18,
+                lineHeight: 1.6,
+                color: "var(--text-body)",
+                margin: 0,
+              }}
+            >
+              Patrick has spent over 30 years in the small lending industry —
+              not just building software, but running loan offices. LoanTec was
+              born from that firsthand experience: the frustration of working
+              with generic tools that didn&apos;t fit how lenders actually
+              operate. Every feature in the platform traces back to a real
+              problem Patrick saw on the ground.
+            </p>
+            <p
+              style={{
+                fontFamily: "var(--font-body)",
+                fontSize: 18,
+                lineHeight: 1.6,
+                color: "var(--text-muted)",
+                marginTop: 16,
+              }}
+            >
+              Since 1996, he&apos;s guided LoanTec from standalone installs to
+              cloud-based multi-office deployments — always keeping the focus on
+              simplicity, speed, and what small lenders actually need.
+            </p>
+          </div>
         </AnimateIn>
       </div>
     </section>
@@ -232,8 +326,10 @@ export default function AboutPage() {
         eyebrow="About us"
         title="Built by lenders, for lenders"
         sub="Nearly 30 years of loan management software for small lending businesses — and the same focus we started with in 1996."
+        bgImage="/images/bg-handshake.jpg"
       />
       <Story />
+      <Founder />
       <Mission />
       <ByTheNumbers />
       <Regulatory />
