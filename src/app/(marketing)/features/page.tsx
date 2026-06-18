@@ -261,6 +261,7 @@ export default function FeaturesPage() {
         eyebrow="Features"
         title="Everything you need to run your lending operation"
         sub="One platform. Every workflow."
+        bgImage="/images/bg-laptop-coffee.jpg"
       />
       <DeploymentOptions />
       <FeatureGridDetailed />
