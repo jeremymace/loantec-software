@@ -68,7 +68,7 @@ export default function Header() {
       <div
         className="lt-wrap"
         style={{
-          height: 80,
+          height: 86,
           display: "flex",
           alignItems: "center",
           gap: 30,
@@ -81,9 +81,9 @@ export default function Header() {
           <Image
             src="/images/loantec-logo.png"
             alt="LoanTec"
-            width={192}
-            height={48}
-            style={{ height: 48, width: "auto" }}
+            width={230}
+            height={58}
+            style={{ height: 58, width: "auto" }}
             priority
           />
         </Link>

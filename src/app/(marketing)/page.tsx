@@ -211,7 +211,7 @@ function LogoBrand() {
           alt="LoanTec"
           width={400}
           height={100}
-          style={{ height: "auto", width: 200, margin: "0 auto" }}
+          style={{ height: "auto", width: 270, margin: "0 auto" }}
         />
         <div
           style={{
